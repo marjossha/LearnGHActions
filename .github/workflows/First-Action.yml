@@ -6,9 +6,11 @@ jobs:
   first-job:
     runs-on: ubuntu-latest
     steps:
-      - name: Print greeting
+      - name: Create test file
         run: touch test
+      - name: Echo secret into test file
         run: echo ${{ secrets.TEST_SECRET}} >> test
+      - name: Run cat on test file
         run: cat test
       - name: Print goodbye
         run: echo "Done - bye!"
