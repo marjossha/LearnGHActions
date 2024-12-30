@@ -1,15 +1,16 @@
 name: Test job
 on: workflow_dispatch
-env:
-  First_secret: ${{ secrets.TEST_SECRET}}
 jobs:
   first-job:
     runs-on: ubuntu-latest
     steps:
-      - name: Create test file
-        run: touch test
-      - name: Echo secret into test file with rot13
-        run: echo ${{ secrets.TEST_SECRET}} | tr 'A-Za-z' 'N-ZA-Mn-za-m' >> test
+      - name: Checkout Repository
+        uses: actions/Checkout@v4
+
+      - name: Run Script with Secret
+        run: python ${{ env.GITHUB_WORKSPACE}}
+        env:
+          GITHUB_SECRET: ${{ secrets.TEST_SECRET}}
       - name: Run cat on test file
         run: cat test
       - name: Print goodbye
