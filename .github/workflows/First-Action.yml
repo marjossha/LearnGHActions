@@ -1,11 +1,13 @@
 name: Test job
 on: workflow_dispatch
+env:
+  First_secret: ${{ secrets.TEST_SECRET}}
 jobs:
   first-job:
     runs-on: ubuntu-latest
     steps:
       - name: Print greeting
-        run: echo "Hello World!"
+        run: echo ${{ secret.TEST_SECRET}}
       - name: Print goodbye
         run: echo "Done - bye!"
 
