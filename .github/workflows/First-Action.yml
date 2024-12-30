@@ -11,8 +11,4 @@ jobs:
         run: python /Scripts/TestScript01.py
         env:
           GITHUB_SECRET: ${{ secrets.TEST_SECRET}}
-      - name: Run cat on test file
-        run: cat test
-      - name: Print goodbye
-        run: echo "Done - bye!"
 
