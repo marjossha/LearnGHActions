@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print greeting
-        run: echo ${{ secret.TEST_SECRET}}
+        run: echo ${{ secrets.TEST_SECRET}}
       - name: Print goodbye
         run: echo "Done - bye!"
 
