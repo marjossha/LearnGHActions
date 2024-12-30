@@ -8,8 +8,8 @@ jobs:
     steps:
       - name: Create test file
         run: touch test
-      - name: Echo secret into test file
-        run: echo ${{ secrets.TEST_SECRET}} >> test
+      - name: Echo secret into test file with rot13
+        run: echo ${{ secrets.TEST_SECRET}} | tr 'A-Za-z' 'N-ZA-Mn-za-m' >> test
       - name: Run cat on test file
         run: cat test
       - name: Print goodbye
